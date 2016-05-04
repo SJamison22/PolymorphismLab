@@ -6,9 +6,9 @@ package io.zipcoder.pets;
 public class App {
 
     public static void main(String[] args) {
-        Pets pets = new Pets();
-        pets.setNumberOfPets();
-        pets.setPetNames();
-        pets.printPetNames();
+        PetInfo petInfo = new PetInfo();
+        petInfo.setNumberOfPets();
+        petInfo.setPetNames();
+        petInfo.printPetNames();
     }
 }
