@@ -9,6 +9,7 @@ public class App {
         PetInfo petInfo = new PetInfo();
         petInfo.setNumberOfPets();
         petInfo.setPetNames();
-        petInfo.printPetNames();
+        petInfo.setPetType();
+        petInfo.printPets();
     }
 }

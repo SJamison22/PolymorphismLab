@@ -1,5 +1,6 @@
 package io.zipcoder.pets;
 
+import java.lang.reflect.Method;
 import java.util.Scanner;
 
 /**
@@ -7,10 +8,14 @@ import java.util.Scanner;
  */
 public class PetInfo {
 
+    Dogs dog = new Dogs();
+    Cats cat = new Cats();
+    Pigs pig = new Pigs();
     Scanner input = new Scanner(System.in);
 
     private int numberOfPets;
     private String[] petNames;
+    private int[] petTypes;
 
     /**
      * Get integer from user and return it.
@@ -63,11 +68,39 @@ public class PetInfo {
     }
 
     /**
-     * Prints all pet names in array.
+     * Sets the type of pet.
      */
-    public void printPetNames(){
-        for(int i = 0; i < petNames.length; i++){
-            System.out.println("Pet "  + (i+1) + "'s name: " + petNames[i]);
+    public void setPetType() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a number to select pet type:");
+        petTypes = new int[getNumberOfPets()];
+        for (int i = 0; i < petNames.length; i++) {
+            System.out.println("Is " + petNames[i] + " a:\n1: Dog\n2: Cat\n3: Pig?");
+            int ans = input.nextInt();
+            petTypes[i] = ans;
         }
     }
+
+    /**
+     * Prints all pet names and speak methods in array.
+     */
+    public void printPets(){
+        String speak;
+        for(int i = 0; i < petNames.length; i++) {
+            if (petTypes[i] == 1) {
+                speak = dog.speak();
+            } else if (petTypes[i] == 2){
+                speak = cat.speak();
+            } else {
+                speak = pig.speak();
+        }
+            System.out.println("Pet "  + (i+1) + "'s name is " + petNames[i] + " and "
+                    + petNames[i] + " says " + speak);
+        }
+    }
+
+
+
+
+
 }
